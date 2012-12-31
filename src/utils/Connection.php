@@ -23,13 +23,13 @@ class Connection {
      *	@param $user Ususario de la base de datos
      *	@param $pass password de la base de datos
      */
-    public function Connection($user, $pass, $host, $port, $db) {
+    public function __construct($user, $pass, $host, $port, $db) {
         $this -> host = $host;
         $this -> port = $port;
         $this -> user = $user;
         $this -> pass = $pass;
         $this -> db = $db;
-        $this -> log = new JJLogger("conexion_error", "conexion_notes", "conexion_query", "../logs");
+        $this -> log = \utils\JJLogger::InstanceOfJJLogger();
     }
 
     /**

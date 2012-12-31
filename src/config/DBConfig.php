@@ -1,10 +1,5 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+namespace config;
 /**
  * Description of DBConfig
  *
@@ -56,7 +51,7 @@ class DBConfig {
      * @access public
      */
     public function getPassword() {
-        return $this->properties['base']['password'];
+        return $this->properties['base']['passwd'];
     }
 
     /**
@@ -70,11 +65,10 @@ class DBConfig {
      * @return \Config\config_ConfigDB Instancia de la clase config_ConfigDB
      */
     public static function getInstance(){
-        if(!isset(self::$INSTANCE)){
-            return self::$INSTANCE = new \Config\config_ConfigDB();
-        }else{
-            return self::$INSTANCE;
+        if(!(self::$INSTANCE instanceof \config\DBConfig)){
+            self::$INSTANCE = new \config\DBConfig();
         }
+        return self::$INSTANCE;
     }
 }
 
