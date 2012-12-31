@@ -1,0 +1,9 @@
+## YAML Template.
+---
+#$err, $note, $query, $dir
+log: 
+  error: error_log
+  note: note_log
+  query: query_log
+  dir: logs
+  autoloader: load_log
