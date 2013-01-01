@@ -1,0 +1,50 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/custom-theme/jquery-ui-1.9.1.custom.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/esqueleto.css" />
+        <script type="text/javascript" src="js/jquery/jquery-1.8.2.js" ></script>
+        <script type="text/javascript" src="js/jquery/jquery-ui-1.9.1.custom.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/utils/validation.js"></script>
+        <script type="text/javascript" src="js/login/login.js"></script>
+        <script>
+            $(document).ready(function(){
+                initEvents();
+            });
+        </script>
+    </head>
+    <body>
+        <header>login</header>
+        <div id="login">
+            <table>
+                <tr>
+                    <td><label>usuario</label></td>
+                    <td>
+                        <input type="text" id="usuario" name="usuario" />
+                        <div id="usuarioAlert" style="display: none;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Contraseña</label></td>
+                    <td>
+                        <input type="password" id="password" />
+                        <div id="tokenDiv"></div>
+                        <div id="passwordAlert"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" id="loginBtn" value="Login" /></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
