@@ -14,10 +14,11 @@ class LoginBO {
         if($result['user'] != 0){
             $token = \utils\JJUtils::createToken();
             $dao->createSession($user, sha1($password), $token);
-            $msg = array('success' => 'success', 'token' => $token);
+            $msg = array('success' => 'success', 'token' => $token, "usr" => $user);
         }else{
-            $msg = array('success' => 'fail');
+            $msg = array('success' => 'fail', "msg" => 'nombre de usuario o password incorrectos');
         }
+        return $msg;
     }
 }
 

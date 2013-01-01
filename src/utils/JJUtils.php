@@ -1,5 +1,6 @@
 <?php
 namespace utils;
+use \Exception;
 /**
  * Description of JJUtils
  *
@@ -15,7 +16,7 @@ abstract class JJUtils {
      * @return array regresa un arreglo asociativo
      */
     public final static function parseJsonToArray($json) {
-        return self::clearDataArray(json_decode($json, TRUE));
+            return self::clearDataArray(json_decode($json, TRUE));
     }
     /**
      * Parsea un array a una cadena en formaro json
@@ -25,5 +26,19 @@ abstract class JJUtils {
     public final static function parseArrayToJson(array $data){
         return json_encode($data);
     }
+    
+    public static function clearDataArray(array $data){
+		$keys = array_keys($data);
+		for($i = 0; $i < count($keys); $i++) {
+			$key = $data[$keys[$i]];
+			if(is_array($data[$keys[$i]])){
+				$data[$keys[$i]] = self::clearDataArray($data[$keys[$i]]);
+				
+			}else{
+				$data[$keys[$i]] = strip_tags($key);
+			}
+		}
+		return $data;
+	}
 }
 ?>
