@@ -3,7 +3,6 @@ include_once realpath(__DIR__ . '/utils/JJLogger.php');
 /**
  * Clase de Auto carga de clases bajo demanda capaz de leer namespaces y la 
  * convencion de ZendFramework 1
- * y namespaces.
  * @author Claudio <claudio@pengostores.com>
  * @author Angel Barrientos <uetiko@gmail.com>
  */

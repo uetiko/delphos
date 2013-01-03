@@ -7,7 +7,12 @@ if($_POST['peticion']){
         case 'login':
             echo \action\LoginAction::loginExecute($_POST['json']);
             break;
-
+        case 'adminReistro':
+            echo $_POST['json'];
+            break;
+        case 'empleadoReistro':
+            echo $_POST['json'];
+            break;
         default:
             break;
     }
