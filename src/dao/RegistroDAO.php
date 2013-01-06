@@ -51,8 +51,17 @@ class RegistroDAO {
         
     }
     
-    public function eliminaEmpleado(){
-        
+    public function eliminaUsuario($id){
+        $this->conn->openPersistentMysqlConnection();
+        $rslt = FALSE;
+        $delete1 = "delete from user_profile where id_user = $id";
+        $delete2 = "delete from user where id_user = $id";
+        try{
+            mysql_query($delete1, $this->conn->getMysqlConnection());
+            $rslt = mysql_query($delete2, $this->conn->getMysqlConnection());
+        }  catch (\Exception $e){
+            $this->logger->log($e->getTraceAsString(), mysql_error($this->conn->getMysqlConnection()), "SEVERE");
+        }
     }
     
     public function eliminaCliente(){

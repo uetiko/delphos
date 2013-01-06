@@ -41,7 +41,7 @@ function loginFnc(){
                         document.cookie;
                         $(window).attr('location', 'admin/dashboard.html');
                     }else{
-                        alert(response.msg);
+                        $(window).attr('location', 'index.html');
                     }
                 },
                 error : function(response, textStatus, jqXHR){
