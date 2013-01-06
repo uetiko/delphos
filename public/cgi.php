@@ -13,6 +13,8 @@ if($_POST['peticion']){
         case 'empleadoReistro':
             echo \action\RegistroAction::registraClienteExecute($_POST['json']);
             break;
+        case 'muestraEmpleados':
+            echo \action\RegistroAction::muestraUsuarios($_POST['json']);
         default:
             break;
     }

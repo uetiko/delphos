@@ -1,0 +1,32 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../js/jquery/jquery-1.8.2.js" ></script>
+        <script type="text/javascript" src="../js/jquery/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../js/admin/muestraUsuarios.js"></script>
+        <script>
+            $(document).ready(function(){
+                initEvents();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="usuarioSelect">
+            <label>seleccione un tipo de usuario</label>
+            <select id="tipo" name="tipo">
+                <option value="E">Empleado</option>
+                <option value="C">Cliente</option>
+            </select>
+            <input id="send" type="button" value="Enviar" />
+        </div>
+        <div id="usuarios">
+            
+        </div>
+    </body>
+</html>

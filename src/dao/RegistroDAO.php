@@ -75,10 +75,10 @@ class RegistroDAO {
         $this->conn->openPersistentMysqlConnection();
         $select = "select u.id_user, u.user, p.nombre, p.apellido, p.correo, p.direccion, p.pais, p.estado, p.telefono ";
         $select .= "from user u inner join user_profile p on u.id_user = p.id_user ";
-        $select .= "where u.id_user_type = '$tipo'";
+        $select .= "where u.id_user_type = $tipo";
         $rstl = mysql_query($select, $this->conn->getMysqlConnection());
         while ($row = mysql_fetch_assoc($rstl)) {
-            $result = $row;
+            $result[] = $row;
         }
         return $result;
     }

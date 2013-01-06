@@ -38,14 +38,16 @@ class AltaBO {
     
     public function muestraUsuariosBO($tipoUsuario){
         $dao = new \dao\RegistroDAO();
-        switch ($tipoUsuario) {
+        $result = array();
+        switch ($tipoUsuario['tipo']) {
             case 'E':
+                $result = $dao->getUsuarios(2);
                 break;
             case 'C':
+                $result = $dao->getUsuarios(3);
                 break;
         }
-        
+        return array("success" => "success", "datos" => $result);      
     }
 }
-
 ?>

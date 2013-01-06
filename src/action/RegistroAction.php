@@ -2,12 +2,7 @@
 
 namespace action;
 
-/**
- * Description of RegistroAction
- *
- * @author silent
- */
-class RegistroAction {
+abstract class RegistroAction {
 
     public static final function registraUsuarioExecute($json) {
         $array = \utils\JJUtils::parseJsonToArray($json);
@@ -21,6 +16,10 @@ class RegistroAction {
         return \utils\JJUtils::parseArrayToJson($array);
     }
     
+    public final static function muestraUsuarios($json){
+        $bo = new \bo\AltaBO();
+        $array = \utils\JJUtils::parseJsonToArray($json);
+        return \utils\JJUtils::parseArrayToJson($bo->muestraUsuariosBO($array));
+    }  
 }
-
 ?>
