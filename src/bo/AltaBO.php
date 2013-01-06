@@ -35,6 +35,17 @@ class AltaBO {
         }
         return $msg;
     }
+    
+    public function muestraUsuariosBO($tipoUsuario){
+        $dao = new \dao\RegistroDAO();
+        switch ($tipoUsuario) {
+            case 'E':
+                break;
+            case 'C':
+                break;
+        }
+        
+    }
 }
 
 ?>

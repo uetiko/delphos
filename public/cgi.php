@@ -8,10 +8,10 @@ if($_POST['peticion']){
             echo \action\LoginAction::loginExecute($_POST['json']);
             break;
         case 'adminReistro':
-            echo $_POST['json'];
+            echo \action\RegistroAction::registraUsuarioExecute($_POST['json']);
             break;
         case 'empleadoReistro':
-            echo $_POST['json'];
+            echo \action\RegistroAction::registraClienteExecute($_POST['json']);
             break;
         default:
             break;
