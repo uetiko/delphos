@@ -37,7 +37,7 @@ class RegistroDAO {
         $this->logger->querys($rslt, "result inser user");
         if($rslt == 1){
             $result = $this->getIdUser($params['usuario'], $params['password']);
-            $insert = "insert into user_profile(id_user, id_user_status, nombre, apellido, correo, direccion, pais, estado, telefono) values('{$result['id_user']}', 1, '{$params['nombre']}', '{$params['apellido']}', '{$params['correo']}', '{$params['direccion']}', '{$params['pais']}', '{$params['estado']}', '{$params['telefono']}');";
+            $insert = "insert into user_profile(id_user, id_user_status, nombre, apellido, correo, direccion, pais, estado, telefono) values('{$result['id_user']}', 1, '{$params['nombre']}', '{$params['apellido']}', '{$params['email']}', '{$params['direccion']}', '{$params['pais']}', '{$params['estado']}', '{$params['telefono']}');";
             return mysql_query($insert, $this->conn->getMysqlConnection());
             
         }
@@ -59,13 +59,12 @@ class RegistroDAO {
         try{
             mysql_query($delete1, $this->conn->getMysqlConnection());
             $rslt = mysql_query($delete2, $this->conn->getMysqlConnection());
+            $rslt = TRUE;
         }  catch (\Exception $e){
             $this->logger->log($e->getTraceAsString(), mysql_error($this->conn->getMysqlConnection()), "SEVERE");
+            $rslt = FALSE;
         }
-    }
-    
-    public function eliminaCliente(){
-        
+        return $rslt;
     }
     
     private function getIdUser($user, $password){

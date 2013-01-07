@@ -57,25 +57,29 @@ function eliminar(){
     $('input').click(function(){
         var id = $(this);
         id = id[0].id;
-        var registro = {
-            tipo        : $('select#tipo option:selected').val()
+        var obj = {
+            id  : id
         }
-        registro = JSON.stringify(registro);/*
+        obj = JSON.stringify(obj);
         $.ajax({
             url : 'http://tienda.local.mx/cgi.php',
             dataType : 'json',
             type : 'POST',
             data : {
                 peticion : true,
-                action : 'muestraEmpleados',
-                json : registro
+                action : 'eliminaUsuario',
+                json : obj
             },
             success : function(response, textStatus, jqXHR){
-                
+                if(response.success == 'success'){
+                    alert(response.msg);
+                }else{
+                    alert(response.msg);
+                }
             },
             error : function(response, textStatus, jqXHR){
                 alert(textStatus);
             }
-        });*/
+        });
     });
 }

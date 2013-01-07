@@ -20,6 +20,12 @@ abstract class RegistroAction {
         $bo = new \bo\AltaBO();
         $array = \utils\JJUtils::parseJsonToArray($json);
         return \utils\JJUtils::parseArrayToJson($bo->muestraUsuariosBO($array));
-    }  
+    }
+    
+    public final static function eliminaUsuario($json){
+        $bo = new \bo\AltaBO();
+        $array = \utils\JJUtils::parseJsonToArray($json);
+        return \utils\JJUtils::parseArrayToJson($bo->eliminaUsuarioBO($array));
+    }
 }
 ?>

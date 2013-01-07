@@ -15,6 +15,10 @@ if($_POST['peticion']){
             break;
         case 'muestraEmpleados':
             echo \action\RegistroAction::muestraUsuarios($_POST['json']);
+            break;
+        case 'eliminaUsuario':
+            echo \action\RegistroAction::eliminaUsuario($_POST['json']);
+            break;
         default:
             break;
     }

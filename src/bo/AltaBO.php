@@ -36,7 +36,7 @@ class AltaBO {
         return $msg;
     }
     
-    public function muestraUsuariosBO($tipoUsuario){
+    public function muestraUsuariosBO(array $tipoUsuario){
         $dao = new \dao\RegistroDAO();
         $result = array();
         switch ($tipoUsuario['tipo']) {
@@ -48,6 +48,19 @@ class AltaBO {
                 break;
         }
         return array("success" => "success", "datos" => $result);      
+    }
+    
+    public function eliminaUsuarioBO(array $id){
+        $dao = new \dao\RegistroDAO();
+        $rslt = array();
+        if($dao->eliminaUsuario($id['id'])){
+            $rslt['success'] = 'success';
+            $rslt['msg'] = 'usuario borrado.';
+        }else{
+            $rslt['success'] = 'fail';
+            $rslt['msg'] = 'No se pudo borrar el usuario';
+        }
+        return $rslt;
     }
 }
 ?>
